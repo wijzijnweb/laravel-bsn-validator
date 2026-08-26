@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Wijzijnweb\LaravelBsnValidator;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Validation\Rule;
+use Wijzijnweb\LaravelBsnValidator\Rules\Bsn;
 
 class LaravelBsnValidatorServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,8 @@ class LaravelBsnValidatorServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'laravel-bsn-validator');
+
+        Rule::macro('bsn', fn () => new Bsn);
 
         if (! $this->app->runningInConsole()) {
             return;
