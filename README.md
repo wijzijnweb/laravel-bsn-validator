@@ -56,6 +56,18 @@ $request->validate([
 
 The `Wijzijnweb\LaravelBsnValidator\Rules\Bsn` rule class can be used directly as an alternative to `Rule::bsn()`.
 
+### Generating BSNs with Faker
+
+This package ships a Faker provider for generating valid BSNs in your app's seeders and factories. It requires `fakerphp/faker`, which this package does not depend on directly, so make sure it's installed in your app:
+
+```php
+use Wijzijnweb\LaravelBsnValidator\Faker\BsnProvider;
+
+$faker->addProvider(new BsnProvider($faker));
+
+$faker->bsn(); // e.g. '123456782'
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
