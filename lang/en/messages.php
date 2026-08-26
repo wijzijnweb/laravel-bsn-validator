@@ -3,5 +3,5 @@
 declare(strict_types=1);
 
 return [
-    'placeholder' => 'LaravelBsnValidator placeholder translation.',
+    'bsn' => 'The :attribute is not a valid BSN (Dutch citizen service number).',
 ];

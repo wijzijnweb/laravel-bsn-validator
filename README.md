@@ -36,7 +36,25 @@ php artisan vendor:publish --tag="laravel-bsn-validator-lang"
 
 ## Usage
 
-<!-- Add a basic usage example here. -->
+Validate a BSN directly:
+
+```php
+use Wijzijnweb\LaravelBsnValidator\LaravelBsnValidator;
+
+app(LaravelBsnValidator::class)->isValid('123456782'); // true
+```
+
+Or use the validation rule with Laravel's validator:
+
+```php
+use Illuminate\Validation\Rule;
+
+$request->validate([
+    'bsn' => ['required', Rule::bsn()],
+]);
+```
+
+The `Wijzijnweb\LaravelBsnValidator\Rules\Bsn` rule class can be used directly as an alternative to `Rule::bsn()`.
 
 ## Changelog
 
